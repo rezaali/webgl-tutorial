@@ -9,7 +9,7 @@
     ]
   },
   "scripts": {
-    "start": "budo index.js:bundle.js --open --live",
+    "start": "budo -p 9000 --title base index.js:bundle.js --open --live",
     "bundle": "browserify index.js -o bundle.js"
   },
   "dependencies": {
