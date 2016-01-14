@@ -21,7 +21,7 @@ npm install
 npm start
 ```
 
-#### Notes
+## Notes
 
 The sketch will automatically reload once you save any of the sketch files. To install other npm packages.
 ```
