@@ -3,7 +3,7 @@ base webgl sketching template for prototyping
 
 ## Instructions
 
-### 1. Run These Once To Install Enviornment Tools
+### 1. Run These Once To Install Environment Tools
 ```
 npm install -g budo
 npm install -g browserify
