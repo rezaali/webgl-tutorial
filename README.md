@@ -7,13 +7,11 @@ base webgl sketching template for prototyping
 ```
 npm install -g budo
 npm install -g browserify
-
 ```
 
 ### 2. Install Sketch Dependencies
 ```
 npm install
-
 ```
 
 ### 3. Run Sketch
