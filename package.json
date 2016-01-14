@@ -1,0 +1,39 @@
+{
+  "name": "base",
+  "version": "1.0.0",
+  "description": "base sketch to start from",
+  "main": "index.js",
+  "browserify": {
+    "transform": [
+      "glslify"
+    ]
+  },
+  "scripts": {
+    "start": "budo index.js:bundle.js --open --live",
+    "bundle": "browserify index.js -o bundle.js"
+  },
+  "dependencies": {
+    "browserify": "*",
+    "canvas-fit": "*",
+    "gl-clear": "^2.0.0",
+    "gl-context": "*",
+    "gl-geometry": "*",
+    "gl-matrix": "*",
+    "gl-shader": "*",
+    "glslify": "*",
+    "is-mobile": "*",
+    "nsc": "^1.0.1",
+    "ycam": "^1.0.2"
+  },
+  "keywords": [
+    "stackgl",
+    "webgl",
+    "ycam",
+    "design",
+    "computation",
+    "digital",
+    "fabrication"
+  ],
+  "author": "Syed Reza Ali <syed.reza.ali@gmail.com> (http://www.syedrezaali.com/)",
+  "license": "Apache-2.0"
+}
