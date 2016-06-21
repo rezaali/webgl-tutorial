@@ -15,15 +15,13 @@
   "dependencies": {
     "browserify": "*",
     "canvas-fit": "*",
-    "gl-clear": "^2.0.0",
+    "gl-clear": "*",
     "gl-context": "*",
     "gl-geometry": "*",
     "gl-matrix": "*",
     "gl-shader": "*",
     "glslify": "*",
-    "is-mobile": "*",
-    "nsc": "^1.0.1",
-    "ycam": "^1.0.2"
+    "is-mobile": "*"
   },
   "keywords": [
     "stackgl",
