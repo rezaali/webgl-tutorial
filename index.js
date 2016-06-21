@@ -4,11 +4,13 @@ var canvas = document.body.appendChild( document.createElement( 'canvas' ) );
 //Get WebGL Context
 var gl = require('gl-context')( canvas, render );
 
-//Import Webgl & Math Libraries
+//Import StackGL Webgl
 var glGeometry = require('gl-geometry');
 var glShader = require('gl-shader');
-var glslify = require('glslify');
 var clear = require('gl-clear')();
+var glslify = require('glslify');
+
+// Import Math Libraries
 var mat4 = require('gl-matrix').mat4;
 
 //Import Web Helper Libraries
