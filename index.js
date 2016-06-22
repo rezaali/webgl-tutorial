@@ -49,6 +49,10 @@ var hull = glGeometry( gl );
 hull.attr( 'aPosition', ycamExpanded, { size: 2 } );
 hull.faces( cga.convexHull2( ycamExpanded ) );
 
+var triangles = glGeometry( gl );
+triangles.attr( 'aPosition', ycam.positions, { size: 2 } );
+triangles.faces( cga.triangulatePolygon2( ycam.positions ) );
+
 function update() {
   // Set Perspective Projection
   var aspectRatio = gl.drawingBufferWidth / gl.drawingBufferHeight;
@@ -71,9 +75,10 @@ function render() {
   gl.enable( gl.BLEND );
   gl.blendFunc( gl.SRC_ALPHA, gl.ONE );
 
-  drawGeo( outline, gl.LINE_LOOP, [ 0, 1, 1, 1 ] );
+  drawGeo( outline, gl.LINE_LOOP, [ 0, 1, 1, 0 ] );
   drawGeo( outlineExpanded, gl.LINE_LOOP, [ 0, 1, 1, 1 ] );
   drawGeo( hull, gl.LINE_LOOP, [ 1, 0, 0, 1 ] );
+  drawGeo( triangles, gl.LINE_LOOP, [ 1, 1, 0, 1 ] );
 }
 
 function drawGeo( geo, mode, color ) {
