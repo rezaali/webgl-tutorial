@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "canvas-fit": "*",
+    "cga": "^1.0.8",
     "gl-clear": "*",
     "gl-context": "*",
     "gl-geometry": "*",

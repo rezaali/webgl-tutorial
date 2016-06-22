@@ -19,6 +19,7 @@ var isMobile = require('is-mobile');
 
 // Import YCAM GRP Libraries
 var ycam = require('ycam');
+var cga = require('cga');
 var cam = require('nsc')( canvas, { position: [ 0.0, 0.0, -2.0 ] } );
 
 // Set the canvas size to fill the window and its pixel density
