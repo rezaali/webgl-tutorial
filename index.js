@@ -71,8 +71,7 @@ triangles.attr( 'aPosition', ycam.positions, { size: 2 } );
 triangles.faces( cga.triangulatePolygon2( ycam.positions ) );
 
 // Mesh Variables
-var mesh, meshOutput, meshOutputTriangles;
-var positions, cells;
+var mesh;
 var meshGeo;
 
 mesh = mda.ProfileGenerator( ycam.positions );
@@ -81,9 +80,7 @@ mda.ExtrudeOperator( mesh, 0, 0, 0.25 );
 mda.ExtrudeOperator( mesh, 1, 0, 4.25 );
 mda.PipeOperator( mesh, 0, 1, 1 );
 mda.TriangulateOperator( mesh );
-positions = mesh.getPositions();
-cells = mesh.getCells();
-meshGeo = createGeo( positions, cells );
+meshGeo = createGeo( mesh.getPositions(), mesh.getCells() );
 
 function update() {
   // Set Perspective Projection
@@ -130,8 +127,8 @@ window.addEventListener( 'keydown', function( event ) {
     } ] ) );
   }
   else if( keyPressed( 'E' ) ) {
-    lgp.fileWriter( "ycam_tutorial.stl", lgp.stlSerializer( { positions: positions, cells: cells } ) );
-    lgp.fileWriter( "ycam_tutorial.obj", lgp.objSerializer( { positions: positions, cells: cells } ) );
+    lgp.fileWriter( "ycam_tutorial.stl", lgp.stlSerializer( { positions: mesh.getPositions(), cells: mesh.getCells() } ) );
+    lgp.fileWriter( "ycam_tutorial.obj", lgp.objSerializer( { positions: mesh.getPositions(), cells: mesh.getCells() } ) );
     return;
 }
 
