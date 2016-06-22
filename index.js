@@ -16,10 +16,12 @@ var mat4 = require('gl-matrix').mat4;
 // Import Web Helper Libraries
 var fit = require('canvas-fit');
 var isMobile = require('is-mobile');
+var keyPressed = require('key-pressed');
 
 // Import YCAM GRP Libraries
 var ycam = require('ycam');
 var cga = require('cga');
+var lgp = require('lgp');
 var cam = require('nsc')( canvas, { position: [ 0.0, 0.0, -2.0 ] } );
 
 // Set the canvas size to fill the window and its pixel density
@@ -80,6 +82,18 @@ function render() {
   drawGeo( hull, gl.LINE_LOOP, [ 1, 0, 0, 1 ] );
   drawGeo( triangles, gl.LINE_LOOP, [ 1, 1, 0, 1 ] );
 }
+
+window.addEventListener( 'keydown', function( event ) {
+  if( keyPressed( 'S' ) ) {
+      lgp.imageWriter( 'ycam_tutorial.png', canvas.toDataURL('image/png') );
+  }
+  else if( keyPressed( 'P' ) ) {
+    lgp.fileWriter( "ycam_tutorial.svg", lgp.svgSerializer( [ {
+      polygon: ycam.positions,
+      strokeWidth: 0.1,
+    } ] ) );
+  }
+}, false );
 
 function drawGeo( geo, mode, color ) {
   geo.bind( shader );

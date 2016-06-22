@@ -26,6 +26,8 @@
     "gl-shader": "*",
     "glslify": "*",
     "is-mobile": "*",
+    "key-pressed": "0.0.1",
+    "lgp": "^1.0.4",
     "nsc": "^1.0.2",
     "ycam": "^1.0.2"
   },
