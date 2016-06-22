@@ -25,6 +25,7 @@
     "gl-shader": "*",
     "glslify": "*",
     "is-mobile": "*",
+    "nsc": "^1.0.2",
     "ycam": "^1.0.2"
   },
   "license": "Apache-2.0"

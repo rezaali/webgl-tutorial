@@ -19,6 +19,7 @@ var isMobile = require('is-mobile');
 
 // Import YCAM GRP Libraries
 var ycam = require('ycam');
+var cam = require('nsc')( canvas, { position: [ 0.0, 0.0, -2.0 ] } );
 
 // Set the canvas size to fill the window and its pixel density
 var mobile = isMobile( navigator.userAgent );
@@ -29,7 +30,6 @@ window.addEventListener( 'resize', fit( canvas, null, dpr ), false );
 var projection = mat4.create();
 var model = mat4.create();
 var view = mat4.create();
-mat4.translate( view, view, [ 0, 0, -2 ] );
 
 //Setup Shaders
 var vertexShader = glslify( './shaders/shader.vert' );
@@ -47,6 +47,8 @@ function update() {
   var near = 0.01;
   var far  = 1000.0;
   mat4.perspective( projection, fieldOfView, aspectRatio, near, far );
+  cam.view( view );
+  cam.update();
 }
 
 function render() {
