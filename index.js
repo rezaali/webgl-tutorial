@@ -29,6 +29,7 @@ window.addEventListener( 'resize', fit( canvas, null, dpr ), false );
 var projection = mat4.create();
 var model = mat4.create();
 var view = mat4.create();
+mat4.translate( view, view, [ 0, 0, -2 ] );
 
 //Setup Shaders
 var vertexShader = glslify( './shaders/shader.vert' );
@@ -65,7 +66,7 @@ function render() {
   shader.uniforms.uProjection = projection;
   shader.uniforms.uView = view;
   shader.uniforms.uModel = model;
-  shader.uniforms.uColor = [1, 0, 0, 1];
+  shader.uniforms.uColor = [0, 1, 1, 1];
   outline.draw( gl.LINE_LOOP );
   outline.unbind();
 }
