@@ -1,5 +1,5 @@
-# webgl-base
-base webgl sketching template for prototyping
+# webgl-tutorial
+Tutorial for Tool & Algorithms for Computational Design (YCAM GRP Vol3)
 
 ## Instructions
 
