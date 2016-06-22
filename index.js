@@ -41,6 +41,10 @@ var shader = glShader( gl, vertexShader, fragmentShader );
 var outline = glGeometry( gl );
 outline.attr( 'aPosition', ycam.positions, { size: 2 } );
 
+var outlineExpanded = glGeometry( gl );
+var ycamExpanded = cga.expandPolygon2( ycam.positions, 0.05 );
+outlineExpanded.attr( 'aPosition', ycamExpanded, { size: 2 } );
+
 function update() {
   // Set Perspective Projection
   var aspectRatio = gl.drawingBufferWidth / gl.drawingBufferHeight;
@@ -63,13 +67,18 @@ function render() {
   gl.enable( gl.BLEND );
   gl.blendFunc( gl.SRC_ALPHA, gl.ONE );
 
-  outline.bind( shader );
+  drawGeo( outline, gl.LINE_LOOP, [0, 1, 1, 1] );
+  drawGeo( outlineExpanded, gl.LINE_LOOP, [0, 1, 1, 1] );
+}
+
+function drawGeo( geo, mode, color ) {
+  geo.bind( shader );
   if( isMobile ) { shader.uniforms.dpr = dpr * 2.0; } else { shader.uniforms.dpr = dpr; }
   shader.uniforms.uPointSize = 1.0;
   shader.uniforms.uProjection = projection;
   shader.uniforms.uView = view;
   shader.uniforms.uModel = model;
-  shader.uniforms.uColor = [0, 1, 1, 1];
-  outline.draw( gl.LINE_LOOP );
-  outline.unbind();
+  shader.uniforms.uColor = color;
+  geo.draw( mode );
+  geo.unbind();
 }
