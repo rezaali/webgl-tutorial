@@ -1,7 +1,7 @@
 {
-  "name": "base",
+  "name": "",
   "version": "1.0.0",
-  "description": "base sketch to start from",
+  "description": "",
   "main": "index.js",
   "browserify": {
     "transform": [
@@ -12,8 +12,11 @@
     "start": "budo -p 9000 --title base index.js:bundle.js --open --live",
     "bundle": "browserify index.js -o bundle.js"
   },
-  "dependencies": {
+  "devDependencies": {
     "browserify": "*",
+    "budo": "*"
+  },
+  "dependencies": {
     "canvas-fit": "*",
     "gl-clear": "*",
     "gl-context": "*",
@@ -23,15 +26,5 @@
     "glslify": "*",
     "is-mobile": "*"
   },
-  "keywords": [
-    "stackgl",
-    "webgl",
-    "ycam",
-    "design",
-    "computational",
-    "digital",
-    "fabrication"
-  ],
-  "author": "Syed Reza Ali <syed.reza.ali@gmail.com> (http://www.syedrezaali.com/)",
   "license": "Apache-2.0"
 }

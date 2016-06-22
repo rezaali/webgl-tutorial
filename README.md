@@ -3,13 +3,7 @@ base webgl sketching template for prototyping
 
 ## Instructions
 
-### 1. Run These Once To Install Environment Tools
-```
-npm install -g budo
-npm install -g browserify
-```
-
-### 2. Install Sketch Dependencies
+### 1. Install Sketch Dependencies
 ```
 npm install
 ```
