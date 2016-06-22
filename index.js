@@ -112,10 +112,10 @@ function render() {
   gl.enable( gl.BLEND );
   gl.blendFunc( gl.SRC_ALPHA, gl.ONE );
 
-  drawGeo( outline, gl.LINE_LOOP, [ 0, 1, 1, 0 ] );
-  drawGeo( outlineExpanded, gl.LINE_LOOP, [ 0, 1, 1, 1 ] );
-  drawGeo( hull, gl.LINE_LOOP, [ 1, 0, 0, 1 ] );
-  drawGeo( triangles, gl.LINE_LOOP, [ 1, 1, 0, 1 ] );
+  // drawGeo( outline, gl.LINE_LOOP, [ 0, 1, 1, 0 ] );
+  // drawGeo( outlineExpanded, gl.LINE_LOOP, [ 0, 1, 1, 1 ] );
+  // drawGeo( hull, gl.LINE_LOOP, [ 1, 0, 0, 1 ] );
+  // drawGeo( triangles, gl.LINE_LOOP, [ 1, 1, 0, 1 ] );
   drawMesh( meshGeo, [ 1, 1, 1, 1 ] );
 }
 
