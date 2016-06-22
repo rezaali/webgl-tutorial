@@ -24,7 +24,8 @@
     "gl-matrix": "*",
     "gl-shader": "*",
     "glslify": "*",
-    "is-mobile": "*"
+    "is-mobile": "*",
+    "ycam": "^1.0.2"
   },
   "license": "Apache-2.0"
 }

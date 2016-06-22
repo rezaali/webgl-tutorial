@@ -17,6 +17,9 @@ var mat4 = require('gl-matrix').mat4;
 var fit = require('canvas-fit');
 var isMobile = require('is-mobile');
 
+// Import YCAM GRP Libraries
+var ycam = require('ycam');
+
 // Set the canvas size to fill the window and its pixel density
 var mobile = isMobile( navigator.userAgent );
 var dpr = mobile ? 1 : ( window.devicePixelRatio || 1 );
@@ -31,6 +34,10 @@ var view = mat4.create();
 var vertexShader = glslify( './shaders/shader.vert' );
 var fragmentShader = glslify( './shaders/shader.frag' );
 var shader = glShader( gl, vertexShader, fragmentShader );
+
+// Setup Sketch Parameters
+var outline = glGeometry( gl );
+outline.attr( 'aPosition', ycam.positions, { size: 2 } );
 
 function update() {
   // Set Perspective Projection
@@ -51,4 +58,14 @@ function render() {
   gl.disable( gl.DEPTH_TEST );
   gl.enable( gl.BLEND );
   gl.blendFunc( gl.SRC_ALPHA, gl.ONE );
+
+  outline.bind( shader );
+  if( isMobile ) { shader.uniforms.dpr = dpr * 2.0; } else { shader.uniforms.dpr = dpr; }
+  shader.uniforms.uPointSize = 1.0;
+  shader.uniforms.uProjection = projection;
+  shader.uniforms.uView = view;
+  shader.uniforms.uModel = model;
+  shader.uniforms.uColor = [1, 0, 0, 1];
+  outline.draw( gl.LINE_LOOP );
+  outline.unbind();
 }
