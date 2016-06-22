@@ -1,10 +1,10 @@
-//Setup Canvas
+// Setup Canvas
 var canvas = document.body.appendChild( document.createElement( 'canvas' ) );
 
-//Get WebGL Context
+// Get WebGL Context
 var gl = require('gl-context')( canvas, render );
 
-//Import StackGL Webgl
+// Import StackGL Webgl
 var glGeometry = require('gl-geometry');
 var glShader = require('gl-shader');
 var clear = require('gl-clear')();
