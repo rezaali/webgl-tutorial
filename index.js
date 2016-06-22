@@ -22,7 +22,7 @@ var keyPressed = require('key-pressed');
 var ycam = require('ycam');
 var cga = require('cga');
 var lgp = require('lgp');
-var cam = require('nsc')( canvas, { position: [ 0.0, 0.0, -2.0 ] } );
+var cam = require('nsc')( canvas, { position: [ 0.0, 0.0, -75.0 ] } );
 
 // Set the canvas size to fill the window and its pixel density
 var mobile = isMobile( navigator.userAgent );
@@ -40,6 +40,12 @@ var fragmentShader = glslify( './shaders/shader.frag' );
 var shader = glShader( gl, vertexShader, fragmentShader );
 
 // Setup Sketch Parameters
+var len = ycam.positions.length;
+for( var i = 0; i < len; i++ ) {
+  ycam.positions[i][0] *= 50;
+  ycam.positions[i][1] *= 50;
+}
+
 var outline = glGeometry( gl );
 outline.attr( 'aPosition', ycam.positions, { size: 2 } );
 
