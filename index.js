@@ -45,6 +45,10 @@ var outlineExpanded = glGeometry( gl );
 var ycamExpanded = cga.expandPolygon2( ycam.positions, 0.05 );
 outlineExpanded.attr( 'aPosition', ycamExpanded, { size: 2 } );
 
+var hull = glGeometry( gl );
+hull.attr( 'aPosition', ycamExpanded, { size: 2 } );
+hull.faces( cga.convexHull2( ycamExpanded ) );
+
 function update() {
   // Set Perspective Projection
   var aspectRatio = gl.drawingBufferWidth / gl.drawingBufferHeight;
@@ -67,8 +71,9 @@ function render() {
   gl.enable( gl.BLEND );
   gl.blendFunc( gl.SRC_ALPHA, gl.ONE );
 
-  drawGeo( outline, gl.LINE_LOOP, [0, 1, 1, 1] );
-  drawGeo( outlineExpanded, gl.LINE_LOOP, [0, 1, 1, 1] );
+  drawGeo( outline, gl.LINE_LOOP, [ 0, 1, 1, 1 ] );
+  drawGeo( outlineExpanded, gl.LINE_LOOP, [ 0, 1, 1, 1 ] );
+  drawGeo( hull, gl.LINE_LOOP, [ 1, 0, 0, 1 ] );
 }
 
 function drawGeo( geo, mode, color ) {
